@@ -9,7 +9,6 @@ It's very opinionated on how code should be structured.
 #### Prerequisite
 
 Node.js v12+
-Npm
 
 
 #### Installation
