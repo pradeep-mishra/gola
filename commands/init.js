@@ -98,21 +98,3 @@ async function runCommand( cmd, opts, projectPath) {
   }
 }
 
-function getDotEnvContent(projectName) {
-return `
-# This file is used to configure the application.
-#
-# The following variables are available:
-#
-#   - GO_ENV: app environement
-GO_ENV=local
-#   - PORT: the port to listen on
-PORT=3005
-#   - DATABASE_URL: the database url
-DATABASE_URL=mongodb://localhost:27017/${projectName}
-#   - DATABASE_Name: the database name
-DATABASE_NAME=${projectName}
-
-`
-}
-
