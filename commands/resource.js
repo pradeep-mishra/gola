@@ -43,7 +43,7 @@ exports.handler = async function (argv) {
   // update servcer.go file to inject newly added resource  
   let serverGoFile = await readFile(path.join(cwd,'server','server.go'))
 
-  serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1  \"${context.projectName}/${resourceName}\"\n`)
+  serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1	\"${context.projectName}/${resourceName}\"\n`)
   
   serverGoFile = serverGoFile.replace("// Routing here", `// Routing here\n	${resourceName}.Load(app)`)
   

@@ -3,10 +3,8 @@
 package server
 
 import (
-	"os"
-
 	"github.com/gofiber/fiber/v2"
-	//"{{projectName}}/global"
+	"{{projectName}}/global"
 )
 
 var App *fiber.App
@@ -22,7 +20,7 @@ func StartServer() *fiber.App {
 	
 	// Routing here
 
-	app.Listen(":" + os.Getenv("PORT"))
+	app.Listen(":" + global.GetEnv("PORT"))
 	appStarted = true
 	return app
 }
