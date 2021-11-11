@@ -11,7 +11,7 @@ exports.builder = {
 }
 
 exports.handler = async function (argv) {
-  //console.log('run projectName', argv.projectName, process.cwd())
+  //console.log('build projectName', argv.projectName, process.cwd())
   if(argv.projectName === '.') {
     argv.projectName = process.cwd()
   }else{

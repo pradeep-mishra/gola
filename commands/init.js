@@ -10,7 +10,7 @@ exports.builder = {
   }
 }
 exports.handler = async function (argv) {
-  console.log('init called for projectName', argv.projectName, process.cwd())
+  //console.log('init called for projectName', argv.projectName, process.cwd())
   const projectPath = path.join(process.cwd(),argv.projectName)
   const projectBinPath = path.join(projectPath,'bin')
   const projectGlobalPath = path.join(projectPath,'global')
