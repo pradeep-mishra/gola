@@ -1,4 +1,4 @@
-# GOLA
+# Gola
 
 Simple Web app framework for go lang
 
@@ -68,6 +68,8 @@ myapp (folder)
 │   │__ controller.go (file)
 │   │
 │   │__ service.go (file)
+│   │
+│   │__ dto.go (file)
 │
 │
 └───bin (folder)
