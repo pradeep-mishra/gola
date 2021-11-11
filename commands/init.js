@@ -24,7 +24,7 @@ exports.handler = async function (argv) {
   await copyFileWithInterpolation('main.go',path.join(projectPath,'main.go'),{projectName: argv.projectName})
   await copyFileWithInterpolation('server.go',path.join(projectServerPath,'server.go'),{projectName: argv.projectName})
   
-  await copyFileTo('db.go',path.join(projectGlobalPath,'db.go'))
+  await copyFileTo('global.go',path.join(projectGlobalPath,'global.go'))
 
   await runCommand('go', ['mod', 'init', argv.projectName], projectPath)
   await runCommand('go', ['mod', 'tidy'], projectPath)

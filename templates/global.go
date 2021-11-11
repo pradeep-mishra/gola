@@ -2,6 +2,7 @@ package global
 
 import (
 	"context"
+	"log"
 	"os"
 	"time"
 
@@ -13,7 +14,27 @@ var MongoClient *mongo.Client
 var IsMongoConnected = false
 var DB *mongo.Database
 
+
+func GetEnv(key string) string {
+  return os.Getenv(key)
+}
+
+func SetEnv(key string, value string) error {
+  return os.Setenv(key, value)
+}
+
+func LookupEnv(key string, defaultValue string) string {
+  val, ok := os.LookupEnv(key)
+  if !ok {
+    return defaultValue
+  }
+  return val
+}
+
+
+
 func ConnectToMongo() (*mongo.Client, error) {
+  log.Println("Connecting to database...")
   client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("DATABASE_URL")))
   if err != nil {
       return nil, err
@@ -28,6 +49,7 @@ func ConnectToMongo() (*mongo.Client, error) {
   if os.Getenv("DATABASE_NAME") != "" {
     DB = client.Database(os.Getenv("DATABASE_NAME"))
   }
+  log.Println("Database connected")
   return client, nil
 }
 

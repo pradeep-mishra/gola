@@ -4,7 +4,6 @@ import (
 	"log"
 	"os"
 
-	//"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
   "${{projectName}}/global"
   "${{projectName}}/server"
@@ -17,6 +16,7 @@ func main() {
 }
 
 func loadEnv() {
+  log.Println("Loading .env file...")
   err := godotenv.Load()
   if err != nil {
     log.Fatalf("Error loading .env file", err)

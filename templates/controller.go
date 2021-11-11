@@ -1,7 +1,6 @@
 package ${{resourceName}}
 
 import (
-	"os"
 	//"${{projectName}}/global"
 	"github.com/gofiber/fiber/v2"
 )
@@ -15,6 +14,7 @@ func Load(app *fiber.App) {
 
 	// sample route
 	${{resourceName}}.Get("/", Get${{resourceNameCapitalized}})
+	${{resourceName}}.Get("/welcome", GetWelcome)
 	
 }
 
