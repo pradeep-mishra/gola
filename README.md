@@ -23,19 +23,19 @@ To create a new project
 gola init [project_name]
 ```
 
-to add new resource in existing project
+To add new resource in existing project
 
 ```bash
 gola resource [resource_name]
 ```
 
-to run the project
+To run a project
 
 ```bash
 gola run
 ```
 
-to build a project
+To build a project
 ```bash
 gola build
 ```
