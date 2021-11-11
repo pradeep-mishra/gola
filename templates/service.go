@@ -5,6 +5,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
+
+// mongodb {{resourceNames}} collection reference 
+//var collection = global.DB.Collection("{{resourceNames}}")
+
+
 // add all your service functions for resource {{resourceName}} here
 
 func Get{{resourceNameCapitalized}}(c *fiber.Ctx) error {

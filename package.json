@@ -1,6 +1,6 @@
 {
   "name": "gola",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "simple web app framework for go lang",
   "author": "pradeep23oct@gmail.com",
   "private": false,

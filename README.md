@@ -47,7 +47,7 @@ gola build
 myapp (folder)
 │
 │
-└───.env (file) - Envirnment config file
+└───.env (file) - Environment config file
 │
 │
 └───main.go (file) - Main entry file
