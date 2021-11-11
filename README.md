@@ -47,23 +47,23 @@ gola build
 myapp (folder)
 │
 │
-└───.env (file)
+└───.env (file) - Envirnment config file
 │
 │
-└───main.go (file)
+└───main.go (file) - Main entry file
 │
 │ 
-└───global (folder)
+└───global (folder) - Package for global util functions
 │   │
-│   │__ db.go (file)
+│   │__ global.go (file) 
 │    
 │
-└───server (folder)
+└───server (folder) - Package for core web server files
 │   │
 │   │__ server.go (file)
 │
 │
-└───[resource_name] (folder)
+└───[resource_name] (folder) - Resource package. e.g. (user, project, content)
 │   │
 │   │__ controller.go (file)
 │   │
@@ -72,16 +72,16 @@ myapp (folder)
 │   │__ dto.go (file)
 │
 │
-└───bin (folder)
+└───bin (folder) - Executable file would be placed here after build command
 │   │
 │   │__ myapp (executable file)
 │  
 │
-└───go.mod (file)
+└───go.mod (file) - Go module registry like package.json for node.js
 │  
 │
 │
-└───go.sum (file) 
+└───go.sum (file)  - Go module registry like package-lock.json for node.js
 
 
 ```
