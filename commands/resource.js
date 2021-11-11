@@ -2,20 +2,20 @@ const fs = require('fs-extra')
 const path = require('path')
 const {exec, handlePromise, copyFile, interPolate, writeFile, readFile} = require('../helpers/util')
 
-exports.command = 'controller [controllerName]'
-exports.desc = 'Create new controller'
+exports.command = 'resource [resourceName]'
+exports.desc = 'Create new resource'
 exports.builder = {
-  controllerName: {
+  resourceName: {
     default: '.'
   }
 }
 
 exports.handler = async function (argv) {
   
-  if(argv.controllerName === '.') {
-    return console.log('Controller name is required')
+  if(argv.resourceName === '.') {
+    return console.log('Resource name is required')
   }
-  const controllerName = argv.controllerName
+  const resourceName = argv.resourceName
   const cwd = process.cwd()
 
 
@@ -24,28 +24,35 @@ exports.handler = async function (argv) {
   }
 
   const context = {
-    controllerName,
-    controllerNames:controllerName,
+    resourceName,
+    resourceNames:resourceName,
+    resourceNameCapitalized:resourceName.charAt(0).toUpperCase() + resourceName.slice(1),
     projectName: path.basename(path.join(cwd)) 
   }
-  if(!controllerName.endsWith('s')){
-    context.controllerNames = controllerName + 's'
+  if(!resourceName.endsWith('s')){
+    context.resourceNames = resourceName + 's'
   }
 
 
-  fs.ensureDirSync(path.join(cwd, controllerName))
+  fs.ensureDirSync(path.join(cwd, resourceName))
 
-  await copyFileWithInterpolation('controller.go', path.join(cwd,controllerName, `controller.go`), context)
+  await copyFileWithInterpolation('controller.go', path.join(cwd,resourceName, `controller.go`), context)
 
+  await copyFileWithInterpolation('service.go', path.join(cwd,resourceName, `service.go`), context)
+
+  // update servcer.go file to inject newly added resource  
   let serverGoFile = await readFile(path.join(cwd,'server','server.go'))
 
-  serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1  \"${context.projectName}/${controllerName}\"\n`)
+  serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1  \"${context.projectName}/${resourceName}\"\n`)
   
-  serverGoFile = serverGoFile.replace("// Routing here", `// Routing here\n	${controllerName}.Load(app)`)
+  serverGoFile = serverGoFile.replace("// Routing here", `// Routing here\n	${resourceName}.Load(app)`)
   
   await writeFile(path.join(cwd,'server','server.go'), serverGoFile)
 
-  console.log(`${controllerName} controller added`)
+
+
+
+  console.log(`${resourceName} resource added`)
 }
 
 

@@ -23,10 +23,10 @@ To create a new project
 gola init [project_name]
 ```
 
-to add new controller in existing project
+to add new resource in existing project
 
 ```bash
-gola controller [controller_name]
+gola resource [resource_name]
 ```
 
 to run the project
@@ -63,9 +63,11 @@ myapp (folder)
 │   │__ server.go (file)
 │
 │
-└───[controller_name] (folder)
+└───[resource_name] (folder)
 │   │
 │   │__ controller.go (file)
+│   │
+│   │__ service.go (file)
 │
 │
 └───bin (folder)
