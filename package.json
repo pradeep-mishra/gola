@@ -4,7 +4,7 @@
   "description": "web app framework for go lang",
   "author": "pradeep23oct@gmail.com",
   "private": false,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "main": "./index.js",
   "bin": {
     "gola": "./index.js"
@@ -19,8 +19,6 @@
   ],
   "scripts": {},
   "dependencies": {
-    "boxen": "^6.2.1",
-    "chalk": "^4.1.2",
     "fs-extra": "^10.0.0",
     "yargs": "^17.2.1"
   }
