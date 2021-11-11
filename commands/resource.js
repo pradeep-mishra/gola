@@ -37,8 +37,8 @@ exports.handler = async function (argv) {
   fs.ensureDirSync(path.join(cwd, resourceName))
 
   await copyFileWithInterpolation('controller.go', path.join(cwd,resourceName, `controller.go`), context)
-
   await copyFileWithInterpolation('service.go', path.join(cwd,resourceName, `service.go`), context)
+  await copyFileWithInterpolation('dto.go', path.join(cwd,resourceName, `dto.go`), context)
 
   // update servcer.go file to inject newly added resource  
   let serverGoFile = await readFile(path.join(cwd,'server','server.go'))

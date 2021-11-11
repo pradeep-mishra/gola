@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
-	//"${{projectName}}/global"
+	//"{{projectName}}/global"
 )
 
 var App *fiber.App

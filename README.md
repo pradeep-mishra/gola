@@ -4,7 +4,7 @@ Simple Web app framework for go lang
 
 The Gola framework is based on Fiber, godotenv, and mongo library.
 
-It's very opinionated on how code should be structured.
+It's very opinionated on how the code should be structured.
 
 #### Prerequisite
 

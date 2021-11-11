@@ -35,7 +35,7 @@ exports.copyFile = (src, dest) => {
 }
 
 exports.interPolate = (str, data) => {
-  return str.replace(/\$\{\{(.*?)\}\}/g, (match, key) => { 
+  return str.replace(/\{\{(.*?)\}\}/g, (match, key) => { 
     return data[key] || match;
   });
 }
