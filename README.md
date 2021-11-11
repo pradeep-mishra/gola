@@ -67,6 +67,11 @@ myapp (folder)
 └───[controller_name] (folder)
 │   │
 │   │__ controller.go (file)
+│
+│
+└───bin (folder)
+│   │
+│   │__ myapp (executable file)
 │  
 │
 └───go.mod (file)
