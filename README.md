@@ -6,7 +6,43 @@ The Gola framework is based on Fiber, godotenv, and mongo library.
 
 It's very opinionated on how code should be structured.
 
-current code structure
+#### Prerequisite
+
+Node.js v12+
+Npm
+
+
+#### Installation
+
+```bash
+npm install gola -g
+```
+
+### Usage 
+To create a new project
+```bash
+gola init [project_name]
+```
+
+to add new controller in existing project
+
+```bash
+gola controller [controller_name]
+```
+
+to run the project
+
+```bash
+gola run
+```
+
+to build a project
+```bash
+gola build
+```
+
+
+#### Code Structure
 
 ```
 myapp (folder)
@@ -40,29 +76,6 @@ myapp (folder)
 └───go.sum (file) 
 
 
-```
-
-
-To create a new project
-```bash
-gola init [project_name]
-```
-
-to add new controller in existing project
-
-```bash
-gola controller [controller_name]
-```
-
-to run the project
-
-```bash
-gola run
-```
-
-to build a project
-```bash
-gola build
 ```
 
 
