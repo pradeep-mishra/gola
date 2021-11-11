@@ -69,7 +69,9 @@ async function installAllDependencies(projectPath) {
   console.log('installing dependencies...')
   await installDependency('fiber','go',['get', 'github.com/gofiber/fiber/v2'], projectPath)
   await installDependency('godotenv', 'go',['get', 'github.com/joho/godotenv'], projectPath)
+  await installDependency('validator', 'go',['get', 'github.com/go-playground/validator/v10'], projectPath)
   await installDependency('mongo', 'go',['get', 'go.mongodb.org/mongo-driver/mongo'], projectPath)
+  
 
 }
 

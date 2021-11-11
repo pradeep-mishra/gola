@@ -6,26 +6,40 @@ import (
 )
 
 
-// mongodb {{resourceNames}} collection reference 
-//var collection = global.DB.Collection("{{resourceNames}}")
+//var collection *global.DB.Collection
 
+func init(){
+	// collection = global.DB.Collection("{{resourceNames}}")
+}
 
 // add all your service functions for resource {{resourceName}} here
 
 func Get{{resourceNameCapitalized}}(c *fiber.Ctx) error {
 	return c.Status(200).JSON(fiber.Map{
-		"message": "Hello from {{resourceName}}",
+		"message": global.GetEnv("WELCOME_MESSAGE"),
 	})
 }
 
+// to Get and Set data from Env, from .env file
+// global.GetEnv("VAR_NAME")
+// global.SetEnv("VAR_NAME")
+// global.LookupEnv("VAR_NAME", "Fallback Value")
 
-func GetWelcome(c *fiber.Ctx) error {
-	return c.Status(200).JSON(fiber.Map{
-		"message": global.LookupEnv("WELCOME_MESSAGE", "Hola User"),
-	})
 
-	// to get/set data from env, data from .env file
-	// global.GetEnv("VAR_NAME")
-	// global.SetEnv("VAR_NAME")
-	// global.LookupEnv("VAR_NAME", "Fallback_Value")
+func New{{resourceNameCapitalized}}(c *fiber.Ctx) error {
+	dataModel := new({{resourceNameCapitalized}}Dto)
+	
+	if err := c.BodyParser(dataModel);err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"error" : err.Error(),
+		})
+	}
+
+	if err:= global.Validate.Struct(dataModel); err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"error" : err.Error(), 
+		})
+	}
+
+	return c.Status(200).JSON(dataModel)
 }

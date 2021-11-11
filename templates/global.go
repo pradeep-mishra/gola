@@ -6,6 +6,7 @@ import (
 	"os"
 	"time"
 
+	"github.com/go-playground/validator/v10"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -13,6 +14,12 @@ import (
 var MongoClient *mongo.Client
 var IsMongoConnected = false
 var DB *mongo.Database
+var Validate *validator.Validate
+
+
+func init(){
+  Validate = validator.New()
+}
 
 
 func GetEnv(key string) string {
@@ -30,7 +37,6 @@ func LookupEnv(key string, defaultValue string) string {
   }
   return val
 }
-
 
 
 func ConnectToMongo() (*mongo.Client, error) {
