@@ -126,7 +126,7 @@ After ```gola run``` command, follow this link
   <tr>
     <td>Resource</td>
     <td>gola resource user </td>
-    <td>Create new resource in existing app, it creates new route with its own controller, service and dto files</td>
+    <td>Creates new resource in existing app, it creates new route with its own controller, service and dto files</td>
   </tr>
   <tr>
     <td>Run</td>
