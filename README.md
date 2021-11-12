@@ -136,7 +136,7 @@ After ```gola run``` command, follow this link
   <tr>
     <td>Build</td>
     <td>gola build </td>
-    <td>Build the project and created executable in bin directory</td>
+    <td>Builds the project and place created executable in bin directory</td>
   </tr>
   <tr>
     <td>Open</td>
