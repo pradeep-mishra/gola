@@ -95,7 +95,7 @@ myapp (folder) - App folder
 
 ```
 
-Example 
+Example Usage
 
 ```bash
 $ gola init myapp
