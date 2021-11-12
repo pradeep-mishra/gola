@@ -5,8 +5,11 @@ Simple web app CLI for Go lang
 The Gola CLI is based on the Fiber, Mongo, Validator and Godotenv library.
 
 It uses the [Fiber](https://docs.gofiber.io/) web framework to manage the web app
-and the [Mongo](https://docs.mongodb.com/drivers/go/current/fundamentals/connection/) package to handle the MongoDB connection
+
+and the [Mongo](https://docs.mongodb.com/drivers/go/current/fundamentals/connection/) package to handle the MongoDB query and connection
+
 and the [Validator](https://github.com/go-playground/validator) to handle the validation of dtos
+
 and [Godotenv](https://pkg.go.dev/github.com/joho/godotenv) for the configuration.
 
 
@@ -100,9 +103,47 @@ $ cd myapp
 $ gola resource user
 $ gola run
 ```
-After ```gola run``` command, follow this link to access the application
+After ```gola run``` command, follow this link
 
 [http://localhost:3000/users](http://localhost:3000/users)
 
 
-Work in progress
+
+
+### All Commands
+
+<table>
+  <tr>
+    <th>Command</th>
+    <th>Usage</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Init</td>
+    <td>gola init myapp</td>
+    <td>Initialize new project</td>
+  </tr>
+  <tr>
+    <td>Resource</td>
+    <td>gola resource user </td>
+    <td>Create new resource in existing app, it creates new route with its own controller, service and dto files</td>
+  </tr>
+  <tr>
+    <td>Run</td>
+    <td>gola run </td>
+    <td>Runs the project</td>
+  </tr>
+  <tr>
+    <td>Build</td>
+    <td>gola build </td>
+    <td>Build the project and created executable in bin directory</td>
+  </tr>
+  <tr>
+    <td>Open</td>
+    <td>gola open vscode</td>
+    <td>Opens the project in vscode IDE</td>
+  </tr>
+  
+</table>
+
+
