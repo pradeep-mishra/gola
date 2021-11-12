@@ -1,8 +1,14 @@
-# Gola
+# Gola CLI
 
-Simple Web app framework for go lang
+Simple web app CLI for Go lang
 
-The Gola framework is based on Fiber, godotenv, and mongo library.
+The Gola CLI is based on the Fiber, Mongo, Validator and Godotenv library.
+
+It uses the [Fiber](https://docs.gofiber.io/) web framework to manage the web app
+and the [Mongo](https://docs.mongodb.com/drivers/go/current/fundamentals/connection/) package to handle the MongoDB connection
+and the [Validator](https://github.com/go-playground/validator) to handle the validation of dtos
+and [Godotenv](https://pkg.go.dev/github.com/joho/godotenv) for the configuration.
+
 
 It's very opinionated on how the code should be structured.
 
@@ -44,13 +50,13 @@ gola build
 #### Code Structure
 
 ```
-myapp (folder)
+myapp (folder) - App folder
 │
 │
 └───.env (file) - Environment config file
 │
 │
-└───main.go (file) - Main entry file
+└───main.go (file) - Entry file
 │
 │ 
 └───global (folder) - Package for global util functions
@@ -65,16 +71,16 @@ myapp (folder)
 │
 └───[resource_name] (folder) - Resource package. e.g. (user, project, content)
 │   │
-│   │__ controller.go (file)
+│   │__ controller.go (file) - All routing for resource goes here
 │   │
-│   │__ service.go (file)
+│   │__ service.go (file) - Business logic to handle all route goes here 
 │   │
-│   │__ dto.go (file)
+│   │__ dto.go (file) - Dto validation object goes here
 │
 │
 └───bin (folder) - Executable file would be placed here after build command
 │   │
-│   │__ myapp (executable file)
+│   │__ myapp (file) - Executable
 │  
 │
 └───go.mod (file) - Go module registry like package.json for node.js
@@ -85,6 +91,18 @@ myapp (folder)
 
 
 ```
+
+Example 
+
+```bash
+$ gola init myapp
+$ cd myapp
+$ gola resource user
+$ gola run
+```
+After ```gola run``` command, follow this link to access the application
+
+[http://localhost:3000/users](http://localhost:3000/users)
 
 
 Work in progress

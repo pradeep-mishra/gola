@@ -1,7 +1,7 @@
 {
   "name": "gola",
-  "version": "0.0.12",
-  "description": "simple web app framework for go lang",
+  "version": "0.0.13",
+  "description": "simple web app cli framework for go lang",
   "author": "pradeep23oct@gmail.com",
   "private": false,
   "license": "MIT",
