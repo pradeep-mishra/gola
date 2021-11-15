@@ -6,6 +6,7 @@ import (
 	"github.com/joho/godotenv"
   "{{projectName}}/global"
   "{{projectName}}/server"
+  "{{projectName}}/db"
 )
 
 func main() {
@@ -13,18 +14,19 @@ func main() {
   log.Println("Loading .env file...")
   err := godotenv.Load()
   if err != nil {
-    log.Fatalf("Error loading .env file", err)
+    panic("Error loading .env file" + err.Error())
   }
 
   // connect to mongo
   if global.GetEnv("DATABASE_URL") != ""{
-    _,err := global.ConnectToMongo()
+  client,ctx, err := db.ConnectToMongo()
     if err != nil {
-      log.Fatal(err)
+      panic(err.Error())
     }
+    defer client.Disconnect(*ctx)
   }
 
-  // starting the webserver
+  // starting the web server
   server.StartServer()
 
 }

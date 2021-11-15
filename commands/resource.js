@@ -40,7 +40,7 @@ exports.handler = async function (argv) {
   await copyFileWithInterpolation('service.go', path.join(cwd,resourceName, `service.go`), context)
   await copyFileWithInterpolation('dto.go', path.join(cwd,resourceName, `dto.go`), context)
 
-  // update servcer.go file to inject newly added resource  
+  // update server.go file to inject newly added resource  
   let serverGoFile = await readFile(path.join(cwd,'server','server.go'))
 
   serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1	\"${context.projectName}/${resourceName}\"\n`)
@@ -50,6 +50,14 @@ exports.handler = async function (argv) {
   await writeFile(path.join(cwd,'server','server.go'), serverGoFile)
 
 
+  // update db.go file to inject newly added resource  
+  let dbGoFile = await readFile(path.join(cwd,'db','db.go'))
+
+  dbGoFile = dbGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1	\"${context.projectName}/${resourceName}\"\n`)
+  
+  dbGoFile = dbGoFile.replace("// collection set", `// collection set\n		${resourceName}.SetCollection(db)`)
+  
+  await writeFile(path.join(cwd,'db','db.go'), dbGoFile)
 
 
   console.log(`${resourceName} resource added`)

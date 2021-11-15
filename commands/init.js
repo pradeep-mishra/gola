@@ -15,15 +15,19 @@ exports.handler = async function (argv) {
   const projectBinPath = path.join(projectPath,'bin')
   const projectGlobalPath = path.join(projectPath,'global')
   const projectServerPath = path.join(projectPath,'server')
+  const projectDBPath = path.join(projectPath,'db')
 
   fs.ensureDirSync(projectBinPath)
   fs.ensureDirSync(projectGlobalPath)
   fs.ensureDirSync(projectServerPath)
+  fs.ensureDirSync(projectDBPath)
 
   await copyFileWithInterpolation('.env',path.join(projectPath,'.env'),{projectName: argv.projectName}) 
   await copyFileWithInterpolation('main.go',path.join(projectPath,'main.go'),{projectName: argv.projectName})
   await copyFileWithInterpolation('server.go',path.join(projectServerPath,'server.go'),{projectName: argv.projectName})
+  await copyFileWithInterpolation('db.go',path.join(projectDBPath,'db.go'),{projectName: argv.projectName})
   
+
   await copyFileTo('global.go',path.join(projectGlobalPath,'global.go'))
 
   await runCommand('go', ['mod', 'init', argv.projectName], projectPath)
@@ -70,9 +74,9 @@ async function installAllDependencies(projectPath) {
   await installDependency('fiber','go',['get', 'github.com/gofiber/fiber/v2'], projectPath)
   await installDependency('godotenv', 'go',['get', 'github.com/joho/godotenv'], projectPath)
   await installDependency('validator', 'go',['get', 'github.com/go-playground/validator/v10'], projectPath)
-  await installDependency('mongo', 'go',['get', 'go.mongodb.org/mongo-driver/mongo'], projectPath)
+  await installDependency('mongo', 'go',['get', 'go.mongodb.org/mongo-driver'], projectPath)
+  //await installDependency('mongo primitive', 'go',['get', 'go.mongodb.org/mongo-driver/primitive'], projectPath)
   
-
 }
 
 async function installDependency(name, cmd, opts, projectPath) {
