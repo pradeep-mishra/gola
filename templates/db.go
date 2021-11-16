@@ -14,7 +14,7 @@ import (
 
 
 func ConnectToMongo() (*mongo.Client, *context.Context, error) {
-  log.Println("Connecting to database...")
+  //log.Println("Connecting to database...")
   client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("DATABASE_URL")))
   if err != nil {
       return nil, nil,err
@@ -32,6 +32,6 @@ func ConnectToMongo() (*mongo.Client, *context.Context, error) {
 		// dont remove this comment
 		// collection set
   }
-  log.Println("Database connected")
+  //log.Println("Database connected")
   return client, &ctx, nil
 }

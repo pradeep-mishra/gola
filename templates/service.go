@@ -40,13 +40,13 @@ func New{{resourceNameCapitalized}}(c *fiber.Ctx) error {
 	
 	if err := c.BodyParser(dto);err != nil {
 		return c.Status(500).JSON(fiber.Map{
-			"error" : err.Error(),
+			"errors" : global.FormatJSONParserError(err),
 		})
 	}
 
 	if err:= global.Validate.Struct(dto); err != nil {
 		return c.Status(500).JSON(fiber.Map{
-			"error" : err.Error(), 
+			"errors" : global.FormatValidationError(err), 
 		})
 	}
 
@@ -62,7 +62,7 @@ func New{{resourceNameCapitalized}}(c *fiber.Ctx) error {
 	ctx, _ := context.WithTimeout(context.Background(), 3*time.Second)
 	if  _, err := collection.InsertOne(ctx, {{resourceName}}Obj);err != nil{
 		return c.Status(500).JSON(fiber.Map{
-			"error" : err.Error(), 
+			"errors" : global.FormatJSONParserError(err), 
 		})
 	}
 	return c.Status(200).JSON({{resourceName}}Obj)
