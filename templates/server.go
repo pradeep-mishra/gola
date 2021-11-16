@@ -15,8 +15,7 @@ func StartServer() *fiber.App {
 	if App != nil && appStarted{
 		return App
 	}
-	app := fiber.New()
-	App = app
+	App = fiber.New()
 	
 	// Routing here
 

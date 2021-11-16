@@ -5,7 +5,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-type {{resourceNameCapitalized}}Dto struct {
+type New{{resourceNameCapitalized}}Dto struct {
 	Name string `json:"name" validate:"required"`
 	Email string `json:"email" validate:"required,email"`
 }

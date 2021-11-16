@@ -36,7 +36,7 @@ func Get{{resourceNameCapitalized}}(c *fiber.Ctx) error {
 
 
 func New{{resourceNameCapitalized}}(c *fiber.Ctx) error {
-	dto := new({{resourceNameCapitalized}}Dto)
+	dto := new(New{{resourceNameCapitalized}}Dto)
 	
 	if err := c.BodyParser(dto);err != nil {
 		return c.Status(500).JSON(fiber.Map{

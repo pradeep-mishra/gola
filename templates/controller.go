@@ -6,7 +6,7 @@ import (
 )
 
 
-func Load(app *fiber.App) {
+func Route(app *fiber.App) {
 	
 	{{resourceName}} := app.Group("/{{resourceNames}}") // grouping of all your routes
 
