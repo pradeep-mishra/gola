@@ -39,6 +39,8 @@ exports.handler = async function (argv) {
   await copyFileWithInterpolation('controller.go', path.join(cwd,resourceName, `controller.go`), context)
   await copyFileWithInterpolation('service.go', path.join(cwd,resourceName, `service.go`), context)
   await copyFileWithInterpolation('dto.go', path.join(cwd,resourceName, `dto.go`), context)
+  await copyFileWithInterpolation('test.go', path.join(cwd,resourceName, `${resourceName}_test.go`), context)
+
 
   // update server.go file to inject newly added resource  
   let serverGoFile = await readFile(path.join(cwd,'server','server.go'))

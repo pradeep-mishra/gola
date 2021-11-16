@@ -75,7 +75,7 @@ async function installAllDependencies(projectPath) {
   await installDependency('godotenv', 'go',['get', 'github.com/joho/godotenv'], projectPath)
   await installDependency('validator', 'go',['get', 'github.com/go-playground/validator/v10'], projectPath)
   await installDependency('mongo', 'go',['get', 'go.mongodb.org/mongo-driver'], projectPath)
-  //await installDependency('mongo primitive', 'go',['get', 'go.mongodb.org/mongo-driver/primitive'], projectPath)
+  await installDependency('testify', 'go',['get', 'github.com/stretchr/testify'], projectPath)
   
 }
 

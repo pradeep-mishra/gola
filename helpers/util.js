@@ -57,7 +57,7 @@ exports.writeFile = (filePath, data) => {
 exports.exec =  (cmd, args, options, logStream) => {
   return new Promise((resolve, reject) => {
     const opts = Object.assign({shell:true}, options);
-    console.log(`executing ${cmd} ${args.join(' ')}`);
+    //console.log(`executing ${cmd} ${args.join(' ')}`);
     const child = spawn(cmd, args, opts);
     let stdout = '';
     let stderr = '';
