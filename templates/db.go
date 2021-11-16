@@ -2,7 +2,7 @@ package db
 
 import (
   "context"
-  "log"
+  //"log"
   "os"
   "time"
   "go.mongodb.org/mongo-driver/mongo"

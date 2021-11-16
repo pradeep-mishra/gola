@@ -45,7 +45,7 @@ exports.handler = async function (argv) {
 
   serverGoFile = serverGoFile.replace(/(^\s*?import\s*\([^\)]+)/gm, `$1	\"${context.projectName}/${resourceName}\"\n`)
   
-  serverGoFile = serverGoFile.replace("// Routing here", `// Routing here\n	${resourceName}.Route(app)`)
+  serverGoFile = serverGoFile.replace("// Routing here", `// Routing here\n	${resourceName}.Route(App)`)
   
   await writeFile(path.join(cwd,'server','server.go'), serverGoFile)
 

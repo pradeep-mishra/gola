@@ -19,7 +19,7 @@ func StartServer() *fiber.App {
 	
 	// Routing here
 
-	app.Listen(":" + global.GetEnv("PORT"))
+	App.Listen(":" + global.GetEnv("PORT"))
 	appStarted = true
-	return app
+	return App
 }
